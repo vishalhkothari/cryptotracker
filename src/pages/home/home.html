@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Silmaril
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addHolding()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+ 
+    <div class="message" *ngIf="!holdingsProvider.holdings.length">
+ 
+        <p><strong>CryptoTracker</strong> is a <strong>P</strong>rogressive <strong>W</strong>eb <strong>A</strong>pplication that allows you to keep track of the approximate worth of your cryptocurency portfolio.</p>
+ 
+        <p>A PWA is like a normal application from the app store, but you can access it directly through the web. You may also add this page to your home screen to launch it like your other applications.</p>
+ 
+        <p>No account required, just hit the button below to start tracking your coins in whatever currency you wish!</p>
+ 
+        
+ 
+    </div>
+ 
+    <ion-refresher *ngIf="holdingsProvider.holdings.length" (ionRefresh)="refreshPrices($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+ 
+    <ion-list no-lines>
+ 
+        <ion-item-sliding *ngFor="let holding of holdingsProvider.holdings">
+          
+ 
+          <ion-item class="holding">
+            <p><strong>{{holding.crypto}}/{{holding.currency}}</strong></p>
+            <p class="amount"><strong>Coins:</strong> {{holding.amount}} <strong>Value:</strong> {{holding.value}}</p>
+            <p *ngIf="holding.value > 0" class="value">{{holding.amount * holding.value}}</p>
+          </ion-item>
+ 
+          <ion-item-options>
+            <button ion-button icon-only color="danger" (click)="holdingsProvider.removeHolding(holding)"><ion-icon name="trash"></ion-icon></button>
+          </ion-item-options>
+ 
+        </ion-item-sliding>
+ 
+    </ion-list>
+ 
+</ion-content>
+ 
+<ion-footer>
+ <button ion-button full (click)="addHolding()" color="primary" id="start">Add Coins</button>
+    <!--<p><strong>Disclaimer:</strong> Do not use this application to make investment decisions. Displayed prices may not reflect actual prices.</p>-->
+ 
+</ion-footer>

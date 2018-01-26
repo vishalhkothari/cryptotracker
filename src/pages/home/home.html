@@ -9,7 +9,7 @@
   </ion-navbar>
 </ion-header>
  
-<ion-content padding>
+<ion-content padding style="background: #384047"><!--new-->
  
     <div class="message" *ngIf="!holdingsProvider.holdings.length">
  
@@ -19,18 +19,42 @@
  
         <p>No account required, just hit the button below to start tracking your coins in whatever currency you wish!</p>
  
-        
- 
     </div>
  
     <ion-refresher *ngIf="holdingsProvider.holdings.length" (ionRefresh)="refreshPrices($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
+
+      <svg height="200" width="500">
+      <!--start bottom 6 lines-->
+        <line x1="81" y1="100" x2="0" y2="200" style="stroke:white ;stroke-width:2" />
+        <line x1="111" y1="100" x2="65" y2="200" style="stroke:white;stroke-width:2" />
+        <line x1="141" y1="100" x2="130" y2="200" style="stroke:white;stroke-width:2" />
+        <line x1="171" y1="100" x2="195" y2="200" style="stroke:white;stroke-width:2" />
+        <line x1="201" y1="100" x2="260" y2="200" style="stroke:white;stroke-width:2" />
+        <line x1="231" y1="100" x2="325" y2="200" style="stroke: white;stroke-width:2" />
+      <!--start right 3 lines-->
+        <text x="120" y="90" fill="white" style="text-shadow: 0 0 3px blue"> cloth off show bob</text>
+        <line x1="261" y1="100" x2="325" y2="150" style="stroke: white;stroke-width:2" />
+        <line x1="291" y1="100" x2="325" y2="115" style="stroke: white;stroke-width:2" />
+      <!--start left 3 lines-->
+        <line x1="51" y1="100" x2="0" y2="150" style="stroke:white ;stroke-width:2" />
+        <line x1="21" y1="100" x2="0" y2="115" style="stroke: white;stroke-width:2" />
+      <!--start horizonal lines-->
+        <line x1="325" y1="200" x2="0" y2="200" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="180" x2="0" y2="180" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="163" x2="0" y2="163" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="148" x2="0" y2="148" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="135" x2="0" y2="135" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="124" x2="0" y2="124" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="115" x2="0" y2="115" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="106" x2="0" y2="106" style="stroke: white;stroke-width:2" />
+        <line x1="325" y1="100" x2="0" y2="100" style="stroke: white;stroke-width:2" /> 
+      </svg>    
  
     <ion-list no-lines>
  
         <ion-item-sliding *ngFor="let holding of holdingsProvider.holdings">
-          
  
           <ion-item class="holding">
             <p><strong>{{holding.crypto}}/{{holding.currency}}</strong></p>
@@ -48,7 +72,7 @@
  
 </ion-content>
  
-<ion-footer>
+<ion-footer style="background: #384047"><!--new-->
  <button ion-button full (click)="addHolding()" color="primary" id="start">Add Coins</button>
     <!--<p><strong>Disclaimer:</strong> Do not use this application to make investment decisions. Displayed prices may not reflect actual prices.</p>-->
  

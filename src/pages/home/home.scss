@@ -7,12 +7,19 @@ page-home {
     }
  
     ion-item-sliding {
+        background: linear-gradient(#f2d646, #c932c9);//new
         margin-top: 10px;
+        outline: none;//new
+        border-color: #c932c9;//new
+        box-shadow: 0 0 15px #c932c9;//new
+        border-radius: 3px;//new
     }
+
  
     .holding {
  
-        background-color: #f9f9f9;
+        //background-color: #f9f9f9;
+        background: linear-gradient(#f2d646, #c932c9);//new
         text-transform: uppercase;
  
         .amount {
@@ -30,5 +37,8 @@ page-home {
     #start {
         margin-bottom: 0;    
     }
+
+    
  
 }
+

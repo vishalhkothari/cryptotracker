@@ -16,15 +16,15 @@ export class AddHoldingPage {
     private cryptoCode: string;
     private displayCurrency: string;
     private amountHolding;
-    public totalValue: number;//new
+
 
  
     constructor(private navCtrl: NavController, private holdingsProvider: HoldingsProvider) {
  
     }
  
-    addHolding(): void {
-
+    addHolding(add): void {
+    
         this.cryptoUnavailable = false;
         this.checkingValidity = true;
  
@@ -32,13 +32,9 @@ export class AddHoldingPage {
             crypto: this.cryptoCode,
             currency: this.displayCurrency,
             amount: this.amountHolding || 0,
-
         };
 
-        let total = { //new
-            myTotal: this.totalValue
 
-        }
  
         this.holdingsProvider.verifyHolding(holding).subscribe((result) => {
  

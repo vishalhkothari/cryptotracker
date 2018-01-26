@@ -4,10 +4,6 @@ import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs/Observable';
 import { forkJoin } from 'rxjs/observable/forkJoin';
 
-interface Total { // new
-    valueTotal: number
-
-}
 
 interface Holding {
     crypto: string,
@@ -15,6 +11,7 @@ interface Holding {
     amount: number,
     value?: number,
 }
+
 
 @Injectable()
 export class HoldingsProvider {
@@ -24,8 +21,8 @@ export class HoldingsProvider {
 
     }
 
-    addHolding(holding: Holding): void { //adds to qeue, gets new price & saves // new
-        
+    addHolding(holding: Holding): void { //adds to qeue, gets new price & saves
+    
         this.holdings.push(holding);
         this.fetchPrices();
         this.saveHoldings();
@@ -79,6 +76,8 @@ export class HoldingsProvider {
             results.forEach((result: any, index) => {
  
                 this.holdings[index].value = result.ticker.price;
+                //var rt = this.holdings[index].value * this.holdings[index].amount; //new
+                //rt += this.holdings[index].total;
  
             });
  
